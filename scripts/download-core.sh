@@ -16,7 +16,7 @@ copy_core() {
     local src="$1"
     rm -rf "$dst"
     mkdir "$dst"
-    ditto "$src" "$dst"
+    cp -a "$src" "$dst"
 
     # XCFramework processing only copies the "realm" headers, so put the third-party ones in a known location
     mkdir -p "$dst/include"
