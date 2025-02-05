@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -eu #o pipefail
 source_root="$(dirname "$0")/.."
 readonly source_root
 
