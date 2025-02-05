@@ -17,8 +17,9 @@ readonly source_root="$(dirname "$0")"
 
 : "${REALM_CORE_VERSION:=$(sed -n 's/^REALM_CORE_VERSION=\(.*\)$/\1/p' "${source_root}/dependencies.list")}" # set to "current" to always use the current build
 
-# Provide a fallback value for TMPDIR, relevant for Xcode Bots
-: "${TMPDIR:=$DARWIN_USER_TEMP_DIR}"
+if [ -z "$TMPDIR" ]; then
+    TMPDIR='/tmp'
+fi
 
 PATH=/usr/libexec:$PATH
 
